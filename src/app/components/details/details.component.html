@@ -1,0 +1,34 @@
+<section class="my-3 rounded-3">
+  <div class="container mx-auto">
+
+    <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 shadow-lg rounded-3 py-2 overflow-hidden">
+      @for (book of getDetails(); track $index) {
+        <div class="animate__animated animate__bounceInLeft">
+          <img [src]="book.formats['image/jpeg']" class="w-100" [alt]="book.title">
+        </div>
+        <div>
+          <div class="p-3 animate__animated animate__fadeInRight">
+            <div class="text-center">
+              <h1>{{book.title}}</h1>
+              <h5>{{book.authors[0].name}}</h5>
+            </div>
+
+            <h4>Languages : {{book.languages[0].toUpperCase()}}</h4>
+            <h4>Subjects :</h4>
+            @for (subject of subjects(); track $index) {
+              <p class="ms-3">{{subjects()[$index]}}</p>
+            }
+            @if(bookShelves().length > 0){
+              <h4>Book Shelves :</h4>
+              @for (bookShelve of bookShelves(); track $index) {
+                <p class="ms-3">{{bookShelves()[$index]}}</p>
+              }
+            }
+            <h4>Read Online: <a class="book-link" [href]="book.formats['text/html']" target="_blank">{{book.formats['application/rdf+xml']}}</a></h4>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,136 @@
+@if(getAllBooks().length >= 1){
+  <section class="home vh-100 text-center text-white d-flex justify-content-center align-items-center flex-column position-relative">
+    <div class="home-slider position-absolute h-100 w-100">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+          <div class="overlay-home"></div>
+          <img src="./assets/images/home.webp" class="w-100 h-100" alt="">
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="overlay-home"></div>
+          <img src="./assets/images/home-2.jpeg" class="w-100 h-100" alt="">
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="overlay-home"></div>
+          <img src="./assets/images/home-3.avif" class="w-100 h-100" alt="">
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="d-flex animate__animated animate__fadeInLeft animate__duration-5s animate__slow">
+        <h1 class="animate__animated animate__fadeInLeft animate__duration-5s animate__slow m-0 fs-1">GET</h1>
+        <div class="animated overflow-hidden">
+            <h1 class="animate__animated animate__fadeInLeft animate__duration-5s animate__slow px-3 m-0 fs-1">BOOKS</h1>
+        </div>
+    </div>
+    <div class="animate__animated animate__fadeInUp animate__duration-6s animate__slow">
+      <p class="my-3 fs-3">Welcome To Books Fair</p>
+      <button class="myBtn" routerLink="/books"><span>Get All Books</span></button>
+    </div>
+  </section>
+
+
+  <section appScroll class="popular-book animate__animated animate__fadeOutLeft">
+    <div class="container">
+      <h1 class="fs-1 fw-bold my-4">POPULAR BOOKS</h1>
+      <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true"
+      slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+      coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
+        @for (book of getAllBooks().reverse(); track $index) {
+          <swiper-slide class="text-center">
+            <img [src]="book.formats['image/jpeg']" class="rounded-end-2" [alt]="book.title">
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+  </section>
+
+  <section class="club-book py-4 bg-light">
+    <div appScroll class="container animate__animated animate__fadeOutLeft">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="text-center">
+            <div class="my-2">
+              <h4 class="text-muted fst-italic">BOOKS CLUB</h4>
+              <h3 class="fs-3">A selection with only the best books</h3>
+            </div>
+            <img src="./assets/images/Book-Banner.png" class="w-100" alt="best books">
+            <button routerLink="/books" class="btn mainBtn"><i class="fa-solid fa-book-open-reader"></i> BOOKS CLUB</button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="overflow-hidden d-flex justify-content-center align-items-center h-100">
+            <swiper-container class="mySwiper" autoplay-delay="2000" autoplay-disable-on-interaction="false" effect="cards" grab-cursor="true">
+              @for (book of bestBooks().slice(10,20).sort(); track $index) {.
+              <swiper-slide class="rounded-end-2">
+                <img [src]="book.formats['image/jpeg']" class="w-100 h-100 rounded-end-2" [alt]="book.title">
+              </swiper-slide>
+              }
+            </swiper-container>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section appScroll class="collection animate__animated animate__fadeOutLeft py-5">
+    <div class="container">
+      <h2 class="text-center">Book Collections</h2>
+      <div class="w-100">
+        <swiper-container class="mySwiper" pagination="true" effect="cube" grab-cursor="true" cube-effect-shadow="true"
+      cube-effect-slide-shadows="true" cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94" autoplay-delay="2000" autoplay-disable-on-interaction="false">
+        <swiper-slide>
+          <div class="history text-white h-100 d-flex flex-column align-items-start justify-content-center gap-2 rounded-2">
+            <h4 class="ps-3">History Books</h4>
+            <button [routerLink]="['/collection',1,'History']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collection</button>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="detective text-white h-100 d-flex flex-column align-items-start justify-content-center gap-2 rounded-2">
+            <h4 class="ps-3">Detective Books</h4>
+            <button [routerLink]="['/collection',1,'Police']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collection</button>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="drama text-white h-100 d-flex flex-column align-items-start justify-content-center gap-2 rounded-2">
+              <h4 class="ps-3">Drama And Suspense Books</h4>
+              <button [routerLink]="['/collection',1,'Drama']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collection</button>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="sports text-white h-100 d-flex flex-column align-items-start justify-content-center gap-2 rounded-2">
+              <h4 class="ps-3">Sports books</h4>
+              <button [routerLink]="['/collection',1,'Sport']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collection</button>
+            </div>
+        </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="available py-5 bg-light">
+    <div appScroll class="container animate__animated animate__fadeOutLeft">
+      <div class="row g-4">
+        <div class="col-md-7">
+          <div class="d-flex flex-column justify-content-center align-items-start h-100 py-3">
+            <div>
+              <h3 class="text-muted fst-italic fs-4">AVAILABLE YEAR</h3>
+              <h2 class="fs-2">We Have A Lot Of Great Books</h2>
+            </div>
+            <div>
+              <button routerLink="/books" class="btn mainBtn"><i class="fa-solid fa-book-open"></i> All Books</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="rounded-circle">
+            <img src="./assets/images/avaliable.jpg" class="w-100 rounded-circle" alt="books">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}

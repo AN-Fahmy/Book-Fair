@@ -1,0 +1,8 @@
+{
+  "routes": [
+    "/allcollections",
+    "/authors",
+    "/books",
+    "/home"
+  ]
+}

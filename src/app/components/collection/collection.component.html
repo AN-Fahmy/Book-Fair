@@ -1,0 +1,55 @@
+<section class="py-3">
+  <div class="container">
+    <div class="row g-4">
+      @for (book of collectionList(); track $index) {
+        <div appScroll class="col-md-4 col-lg-3 col-sm-6 animate__animated animate__fadeOutLeft">
+          <div class="box-book shadow p-3 h-100 rounded-2 position-relative">
+
+            <section class="book-details position-absolute z-2">
+              <div class="example-button-row">
+                <div class="example-flex-container">
+                  <div class="example-button-container">
+                    <a mat-fab extended [routerLink]="['/details', book.id]">
+                      <mat-icon class="me-1">favorite</mat-icon>
+                      Review
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <mat-card class="example-card h-100" appearance="outlined">
+              <img mat-card-image [src]="book.formats['image/jpeg']" height="300px" class="img-book p-3" [alt]="book.title">
+              <mat-card-content class="p-2">
+                <mat-card-title>{{book.title.split(' ', 5).join(' ')}}</mat-card-title>
+                @for (author of book.authors; track $index) {
+                  <mat-card-subtitle>- {{author.name}}</mat-card-subtitle>
+                }
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </div>
+      }
+
+      <div class="col-12">
+        <div class="d-flex justify-content-center align-items-center my-4">
+          <mat-paginator #paginator
+            class="demo-paginator"
+            (page)="handlePageEvent($event)"
+            [length]="this.totalPage()"
+            [pageSize]="pageSize"
+            [disabled]="disabled"
+            [showFirstLastButtons]="showFirstLastButtons"
+            [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+            [hidePageSize]="hidePageSize"
+            [pageIndex]="pageIndex"
+            aria-label="Select page">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>

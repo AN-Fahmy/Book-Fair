@@ -1,0 +1,62 @@
+<div class="search my-3">
+  <div class="container mx-auto">
+    <div class="input-group mb-3 w-75 mx-auto">
+      <input [(ngModel)]="searchValue" type="text" class="search-input border-0 shadow-none form-control px-2" placeholder="Search By Book Name...">
+      <button class="btn btn-primary px-3" type="button" [routerLink]="['/collection', 1, searchValue()]"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </div>
+</div>
+
+<section class="collection my-3">
+  <div class="container">
+    <h1 class="text-center my-2">Collection Books</h1>
+    <div class="w-100 d-flex justify-content-center align-items-center">
+      <swiper-container class="mySwiper" pagination="true" effect="cube" grab-cursor="true" cube-effect-shadow="true"
+    cube-effect-slide-shadows="true" cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94" autoplay-delay="2000" autoplay-disable-on-interaction="false">
+      <swiper-slide>
+        <div class="history text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+          <h4 class="ps-3">History Books</h4>
+          <button [routerLink]="['/collection',1,'History']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="detective text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+          <h4 class="ps-3">Detective Books</h4>
+          <button [routerLink]="['/collection',1,'Police']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="drama text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+            <h4 class="ps-3">Drama And Suspense Books</h4>
+            <button [routerLink]="['/collection',1,'Drama']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+          </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="sports text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+            <h4 class="ps-3">Sports books</h4>
+            <button [routerLink]="['/collection',1,'Sport']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+          </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="sports text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+            <h4 class="ps-3">Biographies books</h4>
+            <button [routerLink]="['/collection', 1,'Biographies']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+          </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="sports text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+            <h4 class="ps-3">Literature books</h4>
+            <button [routerLink]="['/collection', 1,'Literature']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+          </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="sports text-white h-100 d-flex flex-column align-items-start justify-content-center gap-1 rounded-2">
+            <h4 class="ps-3">Fiction books</h4>
+            <button [routerLink]="['/collection', 1,'Fiction']" class="btn mainBtn"><i class="fa-solid fa-eye"></i> View Collections</button>
+          </div>
+      </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</section>
+

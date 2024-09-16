@@ -1,0 +1,51 @@
+.collection{
+  swiper-container {
+    width: 75%;
+    height: 300px;
+  }
+
+  swiper-slide {
+    background-position: center;
+    background-size: cover;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  .history{
+    background: linear-gradient(to right,#000000a8 50%,red 100%),url('../../../assets/images/history.jpeg');
+    background-size: cover;
+    background-position: center center;
+  }
+  .drama{
+    background: linear-gradient(to right,#000000a8 50%,#09c 100%),url('../../../assets/images/drama.jpg');
+    background-size: cover;
+    background-position: center center;
+  }
+  .detective{
+    background: linear-gradient(to right,#000000a8 50%,#b2d100a8 100%),url('../../../assets/images/police.webp');
+    background-size: cover;
+    background-position: center center;
+  }
+  .sports{
+    background-image: linear-gradient(to right,#000000a8 50%,#9300cea8 100%),url("../../../assets/images/sports.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .availableBtn{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-inline: 10px;
+    background-color: rgb(13, 94, 255);
+  }
+}
+.search-input{
+  border-bottom: 1px solid rgba(190, 190, 190, 0.644) !important;
+  &::placeholder{
+    font-size: 12px;
+  }
+  &:focus{
+    box-shadow: 0 5px 5px rgba(0, 153, 204, 0.233) !important;
+  }
+}

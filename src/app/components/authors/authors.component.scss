@@ -1,0 +1,22 @@
+
+.author-books{
+  &:hover{
+    box-shadow: 0 0 8px #09c !important;
+  }
+}
+.search-img{
+  filter: drop-shadow(0 0 8px gray);
+  clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 0 0);
+  &:hover{
+    filter: drop-shadow(0 0 8px #09c);
+  }
+}
+.search-input{
+  border-bottom: 1px solid rgba(190, 190, 190, 0.644) !important;
+  &::placeholder{
+    font-size: 12px;
+  }
+  &:focus{
+    box-shadow: 0 5px 5px rgba(0, 153, 204, 0.233) !important;
+  }
+}

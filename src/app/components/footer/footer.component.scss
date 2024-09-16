@@ -1,0 +1,13 @@
+h6{
+  font-size: 15px !important;
+  &:hover{
+    color: #09c;
+  }
+}
+.fa-arrow-right{
+  animation: move .5s infinite alternate ease-in;
+}
+@keyframes move {
+  from {transform: translateX(0);}
+  to {transform: translateX(5px);}
+}

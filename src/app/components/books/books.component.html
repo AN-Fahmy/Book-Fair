@@ -1,0 +1,85 @@
+@if(pageList().length >= 1){
+  <div class="search my-3">
+    <div class="container">
+      <div class="input-group mb-3 w-75 mx-auto animate__animated animate__fadeInDown">
+        <input [(ngModel)]="searchValue" type="text" class="search-input border-0 shadow-none form-control px-2" placeholder="Search By Book Name...">
+        <button class="btn btn-primary px-3" type="button" (click)="searchBook()"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        @if(searchData().length >= 1){
+          <div class="col-12">
+            <div class="animate__animated animate__fadeInDown">
+              <owl-carousel-o [options]="customOptions">
+                @for (book of searchData(); track $index) {
+                  <ng-template carouselSlide>
+                    <img [src]="book.formats['image/jpeg']" [routerLink]="['/details', book.id]" class="search-img w-100 animate__animated animate__zoomIn p-3 rounded-end-2 cr" height="300px" [alt]="book.title">
+                  </ng-template>
+                }
+              </owl-carousel-o>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="row g-4">
+        @for (book of pageList(); track $index) {
+          <div class="col-md-4 col-lg-3 col-sm-6">
+            <div appScroll class="box-book shadow p-3 h-100 rounded-2 position-relative animate__animated">
+
+              <section class="book-details position-absolute z-2">
+                <div class="example-button-row">
+                  <div class="example-flex-container">
+                    <div class="example-button-container">
+                      <a mat-fab extended [routerLink]="['/details', book.id]">
+                        <mat-icon class="me-1">favorite</mat-icon>
+                        Review
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <mat-card class="example-card h-100" appearance="outlined">
+                <img mat-card-image [src]="book.formats['image/jpeg']" height="300px" class="img-book p-3" [alt]="book.title">
+                <mat-card-content class="p-2">
+                  <mat-card-title>{{book.title.split(' ', 5).join(' ')}}</mat-card-title>
+                  @for (author of book.authors; track $index) {
+                    <mat-card-subtitle>- {{author.name}}</mat-card-subtitle>
+                  }
+                </mat-card-content>
+              </mat-card>
+
+            </div>
+          </div>
+        }
+
+        <div class="col-12">
+          <div class="d-flex justify-content-center align-items-center my-4">
+            <mat-paginator #paginator
+              class="demo-paginator"
+              (page)="handlePageEvent($event)"
+              [length]="this.totalPage()"
+              [pageSize]="pageSize"
+              [disabled]="disabled"
+              [showFirstLastButtons]="showFirstLastButtons"
+              [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+              [hidePageSize]="hidePageSize"
+              [pageIndex]="pageIndex"
+              aria-label="Select page">
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
