@@ -8,7 +8,7 @@ export class ScrollDirective {
 
   constructor(private el:ElementRef) {}
   @HostListener('window:scroll') myScroll(){
-    let elementOffsetTop = this.el.nativeElement.offsetTop - 150
+    let elementOffsetTop = this.el.nativeElement.offsetTop - 250
     let windowScroll = window.scrollY
 
     if(elementOffsetTop <= windowScroll){
