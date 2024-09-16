@@ -37,7 +37,7 @@
       coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
         @for (book of getAllBooks().reverse(); track $index) {
           <swiper-slide class="text-center">
-            <img [src]="book.formats['image/jpeg']" class="rounded-end-2" [alt]="book.title">
+            <img [src]="book.formats['image/jpeg']" class="rounded-end-2" [routerLink]="['/details', book.id]" [alt]="book.title">
           </swiper-slide>
         }
       </swiper-container>
@@ -64,7 +64,7 @@
             <swiper-container class="mySwiper" autoplay-delay="2000" autoplay-disable-on-interaction="false" effect="cards" grab-cursor="true">
               @for (book of bestBooks().slice(10,20).sort(); track $index) {.
               <swiper-slide class="rounded-end-2">
-                <img [src]="book.formats['image/jpeg']" class="w-100 h-100 rounded-end-2" [alt]="book.title">
+                <img [src]="book.formats['image/jpeg']" class="w-100 h-100 rounded-end-2" [routerLink]="['/details', book.id]" [alt]="book.title">
               </swiper-slide>
               }
             </swiper-container>
