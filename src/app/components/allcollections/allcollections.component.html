@@ -1,7 +1,7 @@
 <div class="search my-3">
   <div class="container mx-auto">
     <div class="input-group mb-3 w-75 mx-auto">
-      <input [(ngModel)]="searchValue" type="text" class="search-input border-0 shadow-none form-control px-2" placeholder="Search By Book Name...">
+      <input [(ngModel)]="searchValue" type="text" class="search-input border-0 shadow-none form-control px-2" placeholder="Search By Book Topic...">
       <button class="btn btn-primary px-3" type="button" [routerLink]="['/collection', 1, searchValue()]"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
   </div>

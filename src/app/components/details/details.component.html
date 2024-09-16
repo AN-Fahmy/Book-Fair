@@ -1,13 +1,15 @@
 <section class="my-3 rounded-3">
-  <div class="container mx-auto">
-
-    <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 shadow-lg rounded-3 py-2 overflow-hidden">
+  <div class="container">
+    <div class="row shadow-lg rounded-3 p-5 my-4">
       @for (book of getDetails(); track $index) {
-        <div class="animate__animated animate__bounceInLeft">
-          <img [src]="book.formats['image/jpeg']" class="w-100" [alt]="book.title">
+        <div class="col-md-6">
+          <div class="animate__animated animate__bounceInLeft text-center my-sm-0 my-4">
+            <img [src]="book.formats['image/jpeg']" class="w-75 mx-auto" [alt]="book.title">
+          </div>
         </div>
-        <div>
-          <div class="p-3 animate__animated animate__fadeInRight">
+
+        <div class="col-md-6">
+          <div class="animate__animated animate__fadeInRight">
             <div class="text-center">
               <h1>{{book.title}}</h1>
               <h5>{{book.authors[0].name}}</h5>
@@ -24,7 +26,8 @@
                 <p class="ms-3">{{bookShelves()[$index]}}</p>
               }
             }
-            <h4>Read Online: <a class="book-link" [href]="book.formats['text/html']" target="_blank">{{book.formats['application/rdf+xml']}}</a></h4>
+            <h4 class="mb-2">Read Online: </h4>
+            <a class="book-link ms-3" [href]="book.formats['text/html']" target="_blank">{{book.formats['application/rdf+xml']}}</a>
           </div>
         </div>
       }
